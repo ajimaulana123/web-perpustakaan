@@ -1,4 +1,6 @@
-import { User, Book, Clock, Bell, Settings, LogOut } from "lucide-react";
+"use client";
+
+import { User, Book, Clock, Bell, Settings } from "lucide-react";
 import Image from "next/image";
 import Navbar from "../components/Navbar";
 
@@ -47,7 +49,9 @@ export default function Account() {
               key={action.label}
               className="bg-white/90 backdrop-blur-sm p-4 rounded-xl flex flex-col items-center gap-2 hover:bg-orange-50 transition-all group"
             >
-              <div className="text-blue-600 group-hover:text-orange-500 transition-colors">{action.icon}</div>
+              <div className="text-blue-600 group-hover:text-orange-500 transition-colors">
+                {action.icon}
+              </div>
               <span className="text-gray-800">{action.label}</span>
               {action.value && (
                 <span className="bg-orange-100 text-orange-800 px-2 rounded-full text-sm">

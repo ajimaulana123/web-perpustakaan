@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Search, Book, User, HelpCircle, Settings, Clock, Heart, BookOpen } from "lucide-react";
+import { Search, Book, User, HelpCircle, Clock, Heart, BookOpen } from "lucide-react";
 import Navbar from "./components/Navbar";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";

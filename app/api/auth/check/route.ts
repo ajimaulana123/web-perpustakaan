@@ -25,7 +25,7 @@ export async function GET() {
       isLoggedIn: true,
       user
     })
-  } catch (error) {
+  } catch (_error) {
     return NextResponse.json({ isLoggedIn: false })
   }
 } 

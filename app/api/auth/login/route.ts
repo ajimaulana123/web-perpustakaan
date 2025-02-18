@@ -35,7 +35,7 @@ export async function POST(request: Request) {
       name: user.name,
       role: user.role
     })
-  } catch (error) {
+  } catch (_error) {
     return NextResponse.json(
       { error: "Gagal login" },
       { status: 500 }

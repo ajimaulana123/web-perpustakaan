@@ -25,8 +25,6 @@ export default function BookDetail() {
   const router = useRouter();
   const [book, setBook] = useState<Book | null>(null);
   const [loading, setLoading] = useState(true);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userId, setUserId] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchBook = async () => {
@@ -41,24 +39,8 @@ export default function BookDetail() {
       }
     };
 
-    const checkLoginStatus = async () => {
-      try {
-        const response = await fetch('/api/auth/check', {
-          credentials: 'include'
-        });
-        const data = await response.json();
-        setIsLoggedIn(data.isLoggedIn);
-        if (data.isLoggedIn) {
-          setUserId(data.user.id);
-        }
-      } catch (error) {
-        console.error('Error checking login status:', error);
-      }
-    };
-
     if (params.id) {
       fetchBook();
-      checkLoginStatus();
     }
   }, [params.id]);
 
