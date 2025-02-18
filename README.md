@@ -1,36 +1,111 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Library Management System
 
-## Getting Started
+Sistem manajemen perpustakaan modern berbasis web yang dibangun dengan Next.js 14 dan Prisma.
 
-First, run the development server:
+## Fitur
 
+- 📚 Katalog Buku
+  - Pencarian buku
+  - Filter berdasarkan kategori
+  - Detail buku lengkap
+  - Status ketersediaan
+
+- 👥 Manajemen Pengguna
+  - Registrasi member
+  - Login/logout
+  - Role-based access (Admin, Staff, Member)
+  - Profil pengguna
+
+- 📖 Peminjaman
+  - Peminjaman buku
+  - Pengembalian buku
+  - Riwayat peminjaman
+  - Status peminjaman
+
+## Tech Stack
+
+- **Frontend:** Next.js 14, TailwindCSS
+- **Backend:** Next.js API Routes
+- **Database:** PostgreSQL (Neon)
+- **ORM:** Prisma
+- **Deployment:** Vercel
+
+## Instalasi & Penggunaan
+
+1. Clone repository
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/yourusername/library-management.git
+cd library-management
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Setup environment variables
+```bash
+cp .env.example .env
+```
+Isi dengan kredensial database Anda
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Setup database
+```bash
+npx prisma migrate dev
+npx prisma db seed
+```
 
-## Learn More
+5. Jalankan aplikasi
+```bash
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+Buka [http://localhost:3000](http://localhost:3000) di browser Anda.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Struktur Project
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+library-management/
+├── app/                    # Next.js 14 App Router
+│   ├── api/               # API Routes
+│   ├── books/             # Halaman buku
+│   ├── components/        # Komponen yang dapat digunakan kembali
+│   └── ...
+├── prisma/                # Prisma schema dan migrations
+└── public/                # Asset statis
+```
 
-## Deploy on Vercel
+## API Endpoints
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `GET /api/books` - Mendapatkan daftar buku
+- `GET /api/books/:id` - Mendapatkan detail buku
+- `POST /api/borrow` - Meminjam buku
+- `POST /api/auth/login` - Login user
+- `POST /api/auth/register` - Registrasi user baru
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Deployment
+
+Project ini di-deploy menggunakan Vercel. Untuk melakukan deployment:
+
+1. Push code ke GitHub
+2. Import project di Vercel
+3. Tambahkan environment variables
+4. Deploy!
+
+## Kontribusi
+
+Kontribusi selalu diterima! Silakan buat pull request atau buka issue untuk diskusi fitur baru.
+
+## Lisensi
+
+[MIT License](LICENSE)
+
+## Kontak
+
+- Email: your.email@example.com
+- GitHub: [@yourusername](https://github.com/yourusername)
+
+## Credits
+
+- UI Design terinspirasi dari modern library interfaces
+- Gambar dari [Unsplash](https://unsplash.com)
